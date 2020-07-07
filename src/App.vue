@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 mt-5">
         <h1>Filters & Mixins</h1>
-        <p>{{ text | toUppercase }}</p>
+        <p>{{ text | toUppercase | to-lowercase }}</p>
       </div>
     </div>
   </div>
