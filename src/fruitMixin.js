@@ -13,3 +13,6 @@ export const fruitMixin = {
         }
       }
 }
+
+
+// first render mixin then component !!!
