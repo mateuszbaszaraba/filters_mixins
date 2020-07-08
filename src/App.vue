@@ -9,19 +9,21 @@
         <ul>
           <li v-for="fruit in filteredFruits" :key="fruit">{{ fruit }}</li>
         </ul>
+        <hr>
+        <app-list></app-list>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import list from './List';
+  import { fruitMixin } from './fruitMixin';
+
 export default {
-  name: 'app',
   data () {
     return {
       text: 'Hola senorita!',
-      fruits: ['apple', 'banana', 'mango', 'melon'],
-      filterText: ''
     }
   },
   filters: {
@@ -29,41 +31,12 @@ export default {
       return value.toUpperCase()
     }
   },
-  computed: {
-    filteredFruits() {
-      return this.fruits.filter(element => {
-        return element.match(this.filterText)
-      })
-    }
-  }
+  components: {
+    appList: list
+  },
+  mixins: [fruitMixin]
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
